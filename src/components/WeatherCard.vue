@@ -16,7 +16,7 @@ async function updateWeather() {
 
 <template>
   <div style="display: flex; flex-direction: row; gap: 10px; align-items: center;">
-    <v-text-field label="City:" v-model="city" placeholder="Thompson's Station" type="text"/>
+    <v-text-field label="City:" v-model="city" placeholder="Enter a City" type="text"/>
     <div>
       <v-btn color="primary" @click="updateWeather">Get<br/>Weather</v-btn>
     </div>
