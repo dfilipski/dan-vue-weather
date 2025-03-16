@@ -22,7 +22,7 @@ async function updateWeather() {
     <v-text-field label="City:" v-model.trim="city" placeholder="Enter a City" @keyup.enter="updateWeather"
       type="text" density="compact" />
     <div>
-      <v-btn color="primary" @click="updateWeather">Get<br />Weather</v-btn>
+      <v-btn color="primary" @click="updateWeather" style="height: 60px;">Get<br />Weather</v-btn>
     </div>
   </div>
   <v-card class="mx-auto" max-width="400">
