@@ -18,9 +18,9 @@ async function updateWeather() {
 </script>
 
 <template>
-  <div style="display: flex; flex-direction: row; gap: 10px; align-items: center;">
+  <div style="display: flex; flex-direction: row; gap: 10px;">
     <v-text-field label="City:" v-model.trim="city" placeholder="Enter a City" @keyup.enter="updateWeather"
-      type="text" />
+      type="text" density="compact" />
     <div>
       <v-btn color="primary" @click="updateWeather">Get<br />Weather</v-btn>
     </div>
