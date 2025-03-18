@@ -1,24 +1,11 @@
 import axios from 'axios'
+import type { Weather } from './Weather';
+import type { Units } from './Units';
 
-export interface Weather {
-    main: {
-        temp: number,
-        humidity: number,
-        pressure: number,
-    };
-    weather: {
-        description: string,
-        icon: string,
-    }[];
-    name: string;
-    sys: {
-        country: string,
-    };
-}
 const apiKey = import.meta.env.VITE_WEATHER_API_KEY
 
 
-export async function getWeather(city: string): Promise<Weather> {
+export async function getWeather(city: string, units: Units): Promise<Weather> {
     if (!apiKey) {
         throw new Error('API key not found');
     }
@@ -30,7 +17,7 @@ export async function getWeather(city: string): Promise<Weather> {
             params: {
                 q: city,
                 appid: apiKey,
-                units: 'imperial',
+                units: units,
             }
         });
 
