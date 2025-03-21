@@ -26,14 +26,15 @@ async function toggleUnits() {
 </script>
 
 <template>
-  <div style="display: flex; flex-direction: row; gap: 10px;">
-    <v-text-field label="City:" v-model.trim="city" placeholder="Enter a City" @keyup.enter="updateWeather" type="text"
-      density="compact" />
-    <v-btn color="primary" @click="updateWeather" style="height: 60px;">Get<br />Weather</v-btn>
-    <v-btn color="primary" @click="toggleUnits" style="height: 60px;">Toggle<br />Units</v-btn>
+  <div style="width: 400px; margin: auto;">
+    <div style="display: flex; flex-direction: row; gap: 10px;">
+      <v-text-field label="City:" v-model.trim="city" placeholder="Enter a City" @keyup.enter="updateWeather"
+        type="text" density="compact" />
+      <v-btn color="primary" @click="updateWeather" style="height: 60px;">Get<br />Weather</v-btn>
+      <v-btn color="primary" @click="toggleUnits" style="height: 60px;">Toggle<br />Units</v-btn>
+    </div>
   </div>
-  <v-card class="mx-auto" max-width="400">
-
+  <v-card class="mx-auto" max-width="400" margin="auto">
     <v-card-title>Weather in {{ weather.name }}</v-card-title>
     <v-card-text>
       The temperature is {{ weather.main.temp }}º{{ units === Units.Imperial ? "F" : "C" }}.<br />
