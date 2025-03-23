@@ -31,8 +31,8 @@ async function toggleUnits() {
     <div style="display: flex; flex-direction: row; gap: 10px;">
       <v-text-field label="City:" v-model.trim="city" placeholder="Enter a City" @keyup.enter="updateWeather"
         type="text" density="compact" />
-      <v-btn color="primary" @click="updateWeather" style="height: 60px;">Get<br />Weather</v-btn>
-      <v-btn color="primary" @click="toggleUnits" style="height: 60px;">Toggle<br />Units</v-btn>
+      <v-btn @click="updateWeather" style="height: 60px;">Get<br />Weather</v-btn>
+      <v-btn @click="toggleUnits" style="height: 60px;">Toggle<br />Units</v-btn>
     </div>
   </div>
   <v-card class="mx-auto" max-width="400" margin="auto">
@@ -47,7 +47,7 @@ async function toggleUnits() {
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="primary" @click="updateWeather" style="margin: auto;">Refresh</v-btn>
+      <v-btn @click="updateWeather" style="margin: auto;">Refresh</v-btn>
       <v-spacer></v-spacer>
     </v-card-actions>
   </v-card>
@@ -56,5 +56,24 @@ async function toggleUnits() {
 <style scoped>
 .mx-auto {
   margin: 20px;
+}
+
+.v-card {
+  background-color: var(--catppuccin-surface);
+  color: var(--catppuccin-text);
+}
+
+.v-btn {
+  background-color: var(--catppuccin-dark-blue);
+  color: var(--catppuccin-text); /* Change text color to Catppuccin text color */
+}
+
+.v-text-field input {
+  background-color: var(--catppuccin-surface);
+  color: var(--catppuccin-text);
+}
+
+.v-icon {
+  color: var(--catppuccin-pink);
 }
 </style>
