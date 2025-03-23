@@ -46,7 +46,8 @@ async function toggleUnits() {
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="primary" @click="updateWeather">Refresh</v-btn>
+      <v-btn color="primary" @click="updateWeather" style="margin: auto;">Refresh</v-btn>
+      <v-spacer></v-spacer>
     </v-card-actions>
   </v-card>
 </template>
