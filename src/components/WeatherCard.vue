@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { VBtn, VTextField, VCard, VCardTitle, VCardText } from 'vuetify/components'
+import { VBtn, VTextField, VCard, VCardTitle, VCardText, VCardActions, VSpacer, VIcon } from 'vuetify/components'
 import { getWeather } from '../weatherApi.ts'
 import { Units } from '../Units.ts'
 
@@ -35,12 +35,19 @@ async function toggleUnits() {
     </div>
   </div>
   <v-card class="mx-auto" max-width="400" margin="auto">
-    <v-card-title>Weather in {{ weather.name }}</v-card-title>
+    <v-card-title>
+      <v-icon>mdi-weather-partly-cloudy</v-icon>
+      Weather in {{ weather.name }}
+    </v-card-title>
     <v-card-text>
       The temperature is {{ weather.main.temp }}º{{ units === Units.Imperial ? "F" : "C" }}.<br />
       The humidity is {{ weather.main.humidity }}%.<br />
-      The description is {{ weather.weather[0].description }}. {{ city }}
+      The description is {{ weather.weather[0].description }}.
     </v-card-text>
+    <v-card-actions>
+      <v-spacer></v-spacer>
+      <v-btn color="primary" @click="updateWeather">Refresh</v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 
