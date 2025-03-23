@@ -10,7 +10,7 @@ let weather = ref(await getWeather("Thompson's Station", units))
 
 async function updateWeather() {
   if (city === '') {
-    return
+    city = weather.value.name
   }
   weather.value = await getWeather(city, units)
   console.log(`Getting weather for ${city}...`)
