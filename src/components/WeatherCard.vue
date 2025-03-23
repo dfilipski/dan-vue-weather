@@ -73,6 +73,12 @@ async function toggleUnits() {
   color: var(--catppuccin-text);
 }
 
+.v-text-field input:focus {
+  background-color: var(--catppuccin-surface); /* Add background color on focus */
+  color: var(--catppuccin-text); /* Add text color on focus */
+  outline: none; /* Remove default outline */
+}
+
 .v-icon {
   color: var(--catppuccin-pink);
 }
