@@ -6,6 +6,7 @@ export interface Weather {
         pressure: number;
     };
     weather: {
+        id: number;
         description: string;
         icon: string;
     }[];
