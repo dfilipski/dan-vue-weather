@@ -12,9 +12,11 @@ const weatherIcons: { [key: string]: string } = {
   'clear sky': 'mdi-weather-sunny',
   'few clouds': 'mdi-weather-partly-cloudy',
   'scattered clouds': 'mdi-weather-cloudy',
+  'overcast clouds': 'mdi-weather-partly-cloudy',
   'broken clouds': 'mdi-weather-cloudy',
   'shower rain': 'mdi-weather-pouring',
   'rain': 'mdi-weather-rainy',
+  'light rain': 'mdi-weather-rainy',
   'thunderstorm': 'mdi-weather-lightning',
   'snow': 'mdi-weather-snowy',
   'mist': 'mdi-weather-fog'
