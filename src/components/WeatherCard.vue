@@ -8,6 +8,18 @@ let city = ''
 let units = Units.Imperial
 let weather = ref(await getWeather("Thompson's Station", units))
 
+const weatherIcons: { [key: string]: string } = {
+  'clear sky': 'mdi-weather-sunny',
+  'few clouds': 'mdi-weather-partly-cloudy',
+  'scattered clouds': 'mdi-weather-cloudy',
+  'broken clouds': 'mdi-weather-cloudy',
+  'shower rain': 'mdi-weather-pouring',
+  'rain': 'mdi-weather-rainy',
+  'thunderstorm': 'mdi-weather-lightning',
+  'snow': 'mdi-weather-snowy',
+  'mist': 'mdi-weather-fog'
+}
+
 async function updateWeather() {
   if (city === '') {
     city = weather.value.name
@@ -36,7 +48,7 @@ async function toggleUnits() {
   </div>
   <v-card class="mx-auto" max-width="400" margin="auto">
     <v-card-title>
-      <v-icon>mdi-weather-partly-cloudy</v-icon>
+      <v-icon>{{ weatherIcons[weather.weather[0].description] || 'mdi-weather-partly-cloudy' }}</v-icon>
       Weather in {{ weather.name }}
     </v-card-title>
     <v-card-text>
