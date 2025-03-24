@@ -18,7 +18,5 @@ const count = ref(0)
 </template>
 
 <style scoped>
-.mx-auto {
-  margin: 20px;
-}
+@import '../styles/vuetifyStyles.css';
 </style>

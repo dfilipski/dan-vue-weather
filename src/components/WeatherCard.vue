@@ -1,9 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { VBtn, VTextField, VCard, VCardTitle, VCardText, VCardActions, VSpacer, VIcon } from 'vuetify/components'
 import { getWeather } from '../weatherApi.ts'
 import { Units } from '../Units.ts'
 import { WeatherIcons } from '../WeatherIcons.ts'
+import { useMouseInElement } from '@vueuse/core'
+
+const target = ref(null)
+
+const { elementX, elementY, isOutside, elementHeight, elementWidth } = useMouseInElement(target)
+
+const cardTransform = computed(() => {
+  const MAX_ROTATION = 8
+
+  const rX = (
+    MAX_ROTATION / 2 -
+    (elementY.value / elementHeight.value) * MAX_ROTATION
+  ).toFixed(2)
+
+  const rY = (
+    (elementX.value / elementWidth.value) * MAX_ROTATION -
+    MAX_ROTATION / 2
+  ).toFixed(2)
+
+  return isOutside.value ? '' : `perspective(${elementWidth.value}px) rotateX(${rX}deg) rotateY(${rY}deg)`
+})
 
 let city = ref('')
 let units = Units.Imperial
@@ -14,7 +35,7 @@ async function updateWeather() {
     city.value = weather.value.name
   }
   weather.value = await getWeather(city.value, units)
-  console.log(`Getting weather for ${city}...`)
+  console.log(`Getting weather for ${city.value}...`)
   city.value = ''
 }
 
@@ -35,7 +56,7 @@ async function toggleUnits() {
       <v-btn @click="toggleUnits" style="height: 60px;">Toggle<br />Units</v-btn>
     </div>
   </div>
-  <v-card class="mx-auto" max-width="400" margin="auto">
+  <v-card class="mx-auto" max-width="400" margin="auto" ref="target">
     <v-card-title>
       <v-icon>{{ WeatherIcons[weather.weather[0].id] || 'mdi-weather-partly-cloudy' }}</v-icon>
       Weather in {{ weather.name }}
@@ -54,54 +75,10 @@ async function toggleUnits() {
 </template>
 
 <style scoped>
-.mx-auto {
-  margin: 20px;
-}
+@import '../styles/vuetifyStyles.css';
 
 .v-card {
-  background-color: var(--catppuccin-surface);
-  color: var(--catppuccin-text);
-}
-
-.v-btn {
-  background-color: var(--catppuccin-dark-blue);
-  color: var(--catppuccin-text); /* Change text color to Catppuccin text color */
-}
-
-.v-text-field input {
-  background-color: var(--catppuccin-surface);
-  color: var(--catppuccin-text);
-}
-
-.v-text-field input:focus {
-  background-color: var(--catppuccin-surface); /* Add background color on focus */
-  color: var(--catppuccin-text); /* Add text color on focus */
-  outline: none; /* Remove default outline */
-}
-
-.v-icon {
-  color: var(--catppuccin-pink);
-}
-
-@media (max-width: 500px) {
-  .v-card {
-    max-width: 100%; /* Make card full width on mobile */
-  }
-
-  .v-btn {
-    height: 50px; /* Adjust button height for mobile */
-  }
-
-  .v-text-field {
-    flex: 1; /* Make text field take full width on mobile */
-  }
-
-  .v-card-title {
-    font-size: 1.2em; /* Adjust title font size for mobile */
-  }
-
-  .v-card-text {
-    font-size: 1em; /* Adjust text font size for mobile */
-  }
+  transform: v-bind(cardTransform);
+  transition: transform 0.25s ease-out;
 }
 </style>

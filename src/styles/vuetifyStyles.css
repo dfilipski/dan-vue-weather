@@ -1,0 +1,51 @@
+.mx-auto {
+  margin: 20px;
+}
+
+.v-card {
+  background-color: var(--catppuccin-surface);
+  color: var(--catppuccin-text);
+  border-radius: 8px;;
+}
+
+.v-btn {
+  background-color: var(--catppuccin-dark-blue);
+  color: var(--catppuccin-text); /* Change text color to Catppuccin text color */
+}
+
+.v-text-field input {
+  background-color: var(--catppuccin-surface);
+  color: var(--catppuccin-text);
+}
+
+.v-text-field input:focus {
+  background-color: var(--catppuccin-surface); /* Add background color on focus */
+  color: var(--catppuccin-text); /* Add text color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.v-icon {
+  color: var(--catppuccin-pink);
+}
+
+@media (max-width: 500px) {
+  .v-card {
+    max-width: 100%; /* Make card full width on mobile */
+  }
+
+  .v-btn {
+    height: 50px; /* Adjust button height for mobile */
+  }
+
+  .v-text-field {
+    flex: 1; /* Make text field take full width on mobile */
+  }
+
+  .v-card-title {
+    font-size: 1.2em; /* Adjust title font size for mobile */
+  }
+
+  .v-card-text {
+    font-size: 1em; /* Adjust text font size for mobile */
+  }
+}

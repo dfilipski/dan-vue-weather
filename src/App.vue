@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import CounterCard from './components/CounterCard.vue';
 import WeatherCard from './components/WeatherCard.vue'
 </script>
 
