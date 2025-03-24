@@ -94,3 +94,21 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media (max-width: 500px) {
+  .card {
+    padding: 2em; /* Reduce padding for mobile */
+  }
+
+  h1 {
+    font-size: 2em; /* Reduce font size for mobile */
+  }
+
+  button {
+    padding: 0.4em 0.8em; /* Adjust button padding for mobile */
+  }
+
+  input {
+    padding: 0.4em 0.8em; /* Adjust input padding for mobile */
+  }
+}

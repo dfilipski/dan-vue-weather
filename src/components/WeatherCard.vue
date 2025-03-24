@@ -82,4 +82,26 @@ async function toggleUnits() {
 .v-icon {
   color: var(--catppuccin-pink);
 }
+
+@media (max-width: 500px) {
+  .v-card {
+    max-width: 100%; /* Make card full width on mobile */
+  }
+
+  .v-btn {
+    height: 50px; /* Adjust button height for mobile */
+  }
+
+  .v-text-field {
+    flex: 1; /* Make text field take full width on mobile */
+  }
+
+  .v-card-title {
+    font-size: 1.2em; /* Adjust title font size for mobile */
+  }
+
+  .v-card-text {
+    font-size: 1em; /* Adjust text font size for mobile */
+  }
+}
 </style>
