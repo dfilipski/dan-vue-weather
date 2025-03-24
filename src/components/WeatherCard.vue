@@ -5,17 +5,17 @@ import { getWeather } from '../weatherApi.ts'
 import { Units } from '../Units.ts'
 import { WeatherIcons } from '../WeatherIcons.ts'
 
-let city = ''
+let city = ref('')
 let units = Units.Imperial
 let weather = ref(await getWeather("Thompson's Station", units))
 
 async function updateWeather() {
-  if (city === '') {
-    city = weather.value.name
+  if (city.value === '') {
+    city.value = weather.value.name
   }
-  weather.value = await getWeather(city, units)
+  weather.value = await getWeather(city.value, units)
   console.log(`Getting weather for ${city}...`)
-  city = ''
+  city.value = ''
 }
 
 async function toggleUnits() {
