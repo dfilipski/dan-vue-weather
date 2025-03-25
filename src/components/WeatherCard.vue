@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { VBtn, VTextField, VCard, VCardTitle, VCardText, VCardActions, VSpacer, VIcon } from 'vuetify/components'
-import { getWeather } from '../weatherApi.ts'
-import { Units } from '../Units.ts'
-import { WeatherIcons } from '../WeatherIcons.ts'
+import { getWeather } from '../services/weatherApi.ts'
+import { Units } from '../types/Units.ts'
+import { WeatherIcons } from '../utils/WeatherIcons.ts'
 import { useMouseInElement } from '@vueuse/core'
 
 const target = ref(null)

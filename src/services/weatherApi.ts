@@ -1,6 +1,6 @@
 import axios from 'axios'
-import type { Weather } from './Weather';
-import type { Units } from './Units';
+import type { Weather } from '../types/Weather';
+import type { Units } from '../types/Units';
 
 const apiKey = import.meta.env.VITE_WEATHER_API_KEY
 
